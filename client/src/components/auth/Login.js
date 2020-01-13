@@ -1,19 +1,38 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useState} from 'react';
 import { Link } from 'react-router-dom';
+// import { login } from '../../actions/auth';
 
 const Login = () => {
+  const [formData, setFormData] = useState({
+    email:'',
+    password:''
+  });
+
+  const { email,password} = formData;
+
+  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value});
+  
+const onSubmit = async e => {
+  e.preventDefault();
+  
+
+}
+
     return (
         <Fragment>
       <h1 className='large text-primary'>Sign In</h1>
       <p className='lead'>
         <i className='fas fa-user'/> Sign Into Your Account
       </p>
-      <form className='form'>
+      <form className='form' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <input
-            type='email'
+            type='email' 
             placeholder='Email Address'
             name='email'
+            value={email}
+            onChange={e => onChange(e)}
+            required
           
            
           />
@@ -23,6 +42,9 @@ const Login = () => {
             type='password'
             placeholder='Password'
             name='password'
+            value={password}
+            onChange={e => onChange(e)}
+            required
      
           
           />

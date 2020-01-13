@@ -20,6 +20,15 @@ router.post(
         check('name', 'Name is required')
         .not()
         .isEmpty(),
+        check('dob', 'DOB is required')
+        .not()
+        .isEmpty(),
+        check('company', 'Name of company is required')
+        .not()
+        .isEmpty(),
+        check('profession', 'Profession name is required')
+        .not()
+        .isEmpty(),
         check('email', 'Please include a valid email').isEmail(),
         check(
             'password',
@@ -38,7 +47,10 @@ router.post(
 
         const {
             name,
+            dob,
             email,
+            company,
+            profession,
             password
         } = req.body;
 
@@ -59,6 +71,9 @@ router.post(
 
             user = new User({
                 name,
+                dob,
+                company,
+                profession,
                 email,
                 password
             });

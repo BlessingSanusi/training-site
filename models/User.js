@@ -6,16 +6,13 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
     dob: {
-        type: Date,
-        required: true
+        type: Date
     },
-    companyName: {
-        type: String,
-        required: true
+    company: {
+        type: String
     },
     profession: {
-        type: String,
-        required: true
+        type: String
     },
     email: {
         type: String,
